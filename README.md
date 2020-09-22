@@ -1,8 +1,8 @@
-# github-packages-playground
+# Publish sbt package to Github Packages
 
 ### Publish `sbt` library to Github Packages
 
-> We will use [sb-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
+> We will use [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
 
 #### 1. Generate a personal access token with `package:write` permission
 
@@ -12,7 +12,7 @@ Get your personal access token in `settings - developer settings - personal acce
 
 Then goto `generate token`, please remember this token, we will use it in step 3.
 
-#### 2. Add `sbt-github-packages` plugin into your sbt project
+#### 2. Add `sbt-github-packages` plugin into your existing sbt project
 
 Add this line to your `./project/plugins.sbt`
 ```bash
@@ -64,3 +64,99 @@ The package name is `<organization>.<name>_<scalaVersion>`, the example below ha
 All naming conventions are from the variables in `./build.sbt`.
 
 ![image](https://user-images.githubusercontent.com/8935612/93932180-291ad480-fcf6-11ea-84c4-0f79978dc1e2.png)
+
+
+---
+
+### Use sbt package from Github Packages
+
+> We will use [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
+> You should have followed step 1-5 above and published your package.
+
+
+#### 1. Add `sbt-github-packages` plugin to enable sbt to consume the package
+
+Add this line to your `./project/plugins.sbt`
+```bash
+addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.2")
+```
+
+#### 2. Add library resolver and dependencies to `./build.sbt`
+
+
+Add these lines to the your codebase './build.sbt` make the plugin to work
+```
+githubTokenSource := TokenSource.GitConfig("github.token")
+
+resolvers += Resolver.githubPackages("<github_username>", "<github_repo_name>")
+
+libraryDependencies += "<organization>" %% "<package_name>" % "<version>"
+```
+
+Well, there are many fields we need to match them with your package. You can **ignore the `<github_repo_name>` field**, doing so the plugin will resolve all available packages in github account `<github_username>`.
+
+We'd like to take the package in this repo `build.sbt` as an example:
+
+```scala
+// https://github.com/gjuoun/github-packages-playground/blob/master/build.sbt
+name := "hellopackage"
+scalaVersion := "2.13.3"
+version := "0.1.6"
+organization := "gjuoun"
+
+githubOwner := "gjuoun"
+githubRepository := "github-packages-playground"
+githubTokenSource := TokenSource.GitConfig("github.token")
+```
+
+Where: 
+ - `github_username = gjuoun` //githubOwner
+ - `github_repo_name = github-packages-playground` //githubRepository
+ - `organization = gjuoun` // organization
+ - `package_name = hellopackage` // name
+ - `version = 0.1.6` // version
+ 
+ You're free to match these information in the package page as well:
+ 
+ ![image](https://user-images.githubusercontent.com/8935612/93945682-c9302800-fd0d-11ea-8bd3-88cd67324317.png)
+
+ 
+
+ #### 3. Compile the code
+ 
+ Now you should able to compile your code with the new plugin
+ 
+ ```shell
+ > sbt compile
+ ```
+ 
+ #### 4. Use the package
+ 
+ I would like to consume my package: 
+ 
+```scala
+// https://github.com/gjuoun/github-packages-playground/blob/master/src/main/scala/org/gjuoun/lib/calculator.scala
+package org.gjuoun.lib
+
+class Calculator{
+  def add(x: Int, y:Int): Int ={
+    x+y
+  }
+}
+```
+
+Importing the package becomes very easy, just follow the package name: `org.gjuoun.lib`
+
+```scala
+import org.gjuoun.lib.Calculator
+
+...
+// use it with
+  var cal = new Calculator()
+  Console.println(cal.add(10, 100))
+``
+
+Done. That's it. 
+
+ 
+ 

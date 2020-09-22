@@ -7,6 +7,7 @@
 #### 1. Generate a personal access token with `package:write` permission
 
 Get your personal access token in `settings - developer settings - personal access token`
+
 ![image](https://user-images.githubusercontent.com/8935612/93943795-a0a62f00-fd09-11ea-84b3-ae55a96cd4d5.png)
 
 Then goto `generate token`, please remember this token, we will use it in step 3.
@@ -55,6 +56,7 @@ Run this command to publish your package:
 ```
 
 Then you will see this `package` tab available in your repo:
+
 ![image](https://user-images.githubusercontent.com/8935612/93931869-bc9fd580-fcf5-11ea-8639-f15b95cc8199.png)
 
 

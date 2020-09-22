@@ -18,20 +18,32 @@ Add this line to your `./project/plugins.sbt`
 addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.2")
 ```
 
-#### 3. Set `GITHUB_TOKEN=<personal_token>` as environment variable
+#### 3. Set global git `github.token` to allow the plugin to work
 
 ```bash
-export GITHUB_TOKEN=<personal_token>
+git config --global github.user <github_username>
+git config --global github.token <personal_token>
+```
+
+you should be able to view it at `~/.gitconfig`
+
+```bash
+[github]
+	token = <personal_token>
+	user = <username>
+...
 ```
 
 #### 4. Get ready to publish your package 
 
-Add these two lines to your `./build.sbt`
+Add these these lines to your `./build.sbt`
 
 ```bash
-ThisBuild / githubOwner := "<github_username>"
-ThisBuild / githubRepository := "<repo_name>"
+githubOwner := "<github_username>"
+githubRepository := "<github_repo_name>"
+githubTokenSource := TokenSource.GitConfig("github.token")
 ```
+after adding them you should re-run the build or restart the IDE (if you're using IntelliJ)
 
 For example, my username is `gjuoun` and this repo name is `github-packages-playground`. Fill the fields as yours.
 

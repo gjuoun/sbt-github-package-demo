@@ -1,6 +1,6 @@
 # Publish sbt package to Github Packages
 
-### Publish `sbt` library to Github Packages
+### 🧧 Publish `sbt` library to Github Packages
 
 > We will use [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
 
@@ -68,7 +68,7 @@ All naming conventions are from the variables in `./build.sbt`.
 
 ---
 
-### Use sbt package from Github Packages
+### 🧨 Use sbt package from Github Packages
 
 > We will use [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
 > You should have followed step 1-5 above and published your package.

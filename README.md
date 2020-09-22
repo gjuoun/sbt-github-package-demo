@@ -7,7 +7,7 @@
 #### 1. Generate a personal access token with `package:write` permission
 
 Get your personal access token in `settings - developer settings - personal access token`
-![](https://camo.githubusercontent.com/300622218c96288431c7bd4530f721bf27e1b983/68747470733a2f2f692e696d6775722e636f6d2f656b64794162322e706e67)
+![image](https://user-images.githubusercontent.com/8935612/93943795-a0a62f00-fd09-11ea-84b3-ae55a96cd4d5.png)
 
 Then goto `generate token`, please remember this token, we will use it in step 3.
 

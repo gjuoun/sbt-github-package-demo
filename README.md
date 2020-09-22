@@ -150,13 +150,10 @@ Importing the package becomes very easy, just follow the package name: `org.gjuo
 ```scala
 import org.gjuoun.lib.Calculator
 
-```
+
 // use it with
   var cal = new Calculator()
   Console.println(cal.add(10, 100))
 ```
 
 Done. That's it. 
-
- 
- 

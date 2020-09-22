@@ -1,16 +1,17 @@
 import Dependencies._
 
+name := "hellopackage"
 scalaVersion := "2.13.3"
-version := "0.1.0-SNAPSHOT"
-organization := "supermanue"
-name := "ExampleLibrary"
+version := "0.1.5"
+organization := "gjuoun"
 
+// configs for sbt-github-packages plugin
 githubOwner := "gjuoun"
-githubRepository := "example-library"
+githubRepository := "github-packages-playground"
+githubTokenSource := TokenSource.GitConfig("github.token")
 
 lazy val root = (project in file("."))
   .settings(
-    name := "helloPackage",
     libraryDependencies += scalaTest % Test
   )
 

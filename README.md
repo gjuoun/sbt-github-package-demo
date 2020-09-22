@@ -46,7 +46,7 @@ Then you will see this `package` tab available in your repo:
 ![image](https://user-images.githubusercontent.com/8935612/93931869-bc9fd580-fcf5-11ea-8639-f15b95cc8199.png)
 
 
-The package name is `<organization>.<name>_<sbt_version>`, the example below has a package version `0.1.2` which is from `<version>`. 
+The package name is `<organization>.<name>_<scalaVersion>`, the example below has a package version `0.1.2` which is from `<version>`. 
 All naming conventions are from the variables in `./build.sbt`.
 
 ![image](https://user-images.githubusercontent.com/8935612/93932180-291ad480-fcf6-11ea-84c4-0f79978dc1e2.png)

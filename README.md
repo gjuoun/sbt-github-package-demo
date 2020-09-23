@@ -93,19 +93,9 @@ libraryDependencies += "<organization>" %% "<package_name>" % "<version>"
 
 Well, there are many fields we need to match them with your package. You can **ignore the `<github_repo_name>` field**, doing so the plugin will resolve all available packages in github account `<github_username>`.
 
-We'd like to take the package in this repo `build.sbt` as an example:
+We'd like to take this package as an example:
 
-```scala
-// https://github.com/gjuoun/github-packages-playground/blob/master/build.sbt
-name := "hellopackage"
-scalaVersion := "2.13.3"
-version := "0.1.6"
-organization := "gjuoun"
-
-githubOwner := "gjuoun"
-githubRepository := "github-packages-playground"
-githubTokenSource := TokenSource.GitConfig("github.token")
-```
+ ![image](https://user-images.githubusercontent.com/8935612/93945682-c9302800-fd0d-11ea-8bd3-88cd67324317.png)
 
 Where: 
  - `github_username = gjuoun` //githubOwner
@@ -113,11 +103,6 @@ Where:
  - `organization = gjuoun` // organization
  - `package_name = hellopackage` // name
  - `version = 0.1.6` // version
- 
- You're free to match these information in the package page as well:
- 
- ![image](https://user-images.githubusercontent.com/8935612/93945682-c9302800-fd0d-11ea-8bd3-88cd67324317.png)
-
  
 
  #### 3. Compile the code

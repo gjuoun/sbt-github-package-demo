@@ -115,7 +115,7 @@ Where:
  
  #### 4. Use the package
  
- I would like to consume my package: 
+Suppose the package has code: 
  
 ```scala
 // https://github.com/gjuoun/github-packages-playground/blob/master/src/main/scala/org/gjuoun/lib/calculator.scala
@@ -128,7 +128,7 @@ class Calculator{
 }
 ```
 
-Importing the package becomes very easy, just follow the package name: `org.gjuoun.lib`
+Importing the package into your code is easy, just follow the package name: `org.gjuoun.lib`
 
 ```scala
 import org.gjuoun.lib.Calculator

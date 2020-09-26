@@ -1,5 +1,7 @@
 # Publish sbt package to Github Packages
 
+As you may know, Github Packages is a place like `npm`, which you can host public and private packages. Currently, Github packages supports many package registries like `npm`, `gem`, `mvn`, `gradle`, `dotnet` (**Free for public libraries**). However, there is not support for `sbt`, which is not very friendly to our `scala` developers. Fortunately, thanks to `djspiewak` for creating [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin. This will allow us to publish our scala library into Github packages. Here is how: 
+
 ### 🧧 Publish `sbt` library to Github Packages
 
 > We will use [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin in this tutorial
@@ -25,13 +27,12 @@ addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.2")
 git config --global github.user <github_username>
 git config --global github.token <personal_token>
 ```
-
-you should be able to view it at `~/.gitconfig`
+Where <personal_token> is the token you just created in `step 1`. After executing these commands, you should be able to view it at `~/.gitconfig`
 
 ```bash
 [github]
 	token = <personal_token>
-	user = <username>
+	user = <github_username>
 ...
 ```
 
@@ -47,6 +48,8 @@ githubTokenSource := TokenSource.GitConfig("github.token")
 after adding them you should re-run the build or restart the IDE (if you're using IntelliJ)
 
 For example, my username is `gjuoun` and this repo name is `github-packages-playground`. Fill the fields as yours.
+
+Behind the scene, `githubTokenSource := TokenSource.GitConfig("github.token")` reads the github token then the plugin is authorized to publish to Github Packages
 
 #### 5. Publish to Github Packages
 
@@ -82,7 +85,8 @@ addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.2")
 #### 2. Add library resolver and dependencies to `./build.sbt`
 
 
-Add these lines to the your codebase './build.sbt` make the plugin to work
+Add these lines to your codebase `./build.sbt` make the plugin to work
+
 ```
 githubTokenSource := TokenSource.GitConfig("github.token")
 
@@ -98,14 +102,14 @@ We'd like to take this package as an example:
  ![image](https://user-images.githubusercontent.com/8935612/93945682-c9302800-fd0d-11ea-8bd3-88cd67324317.png)
 
 Where: 
- - `github_username = gjuoun` //githubOwner
- - `github_repo_name = github-packages-playground` //githubRepository
- - `organization = gjuoun` // organization
- - `package_name = hellopackage` // name
- - `version = 0.1.6` // version
+ - `github_username = gjuoun` 
+ - `github_repo_name = github-packages-playground` 
+ - `organization = gjuoun` 
+ - `package_name = hellopackage` 
+ - `version = 0.1.6` 
  
 
- #### 3. Compile the code
+#### 3. Compile the code
  
  Now you should able to compile your code with the new plugin
  
@@ -113,7 +117,7 @@ Where:
  > sbt compile
  ```
  
- #### 4. Use the package
+#### 4. Use the package
  
 Suppose the package has code: 
  
@@ -139,4 +143,7 @@ import org.gjuoun.lib.Calculator
   Console.println(cal.add(10, 100))
 ```
 
-Done. That's it. 
+Congratulations, you've published your scala library to Github packages successfully!
+
+Demo code can be found [here](https://github.com/gjuoun/sbt-github-package-demo)
+

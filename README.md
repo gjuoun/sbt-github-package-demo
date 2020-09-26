@@ -16,7 +16,7 @@ Then goto `generate token`, please remember this token, we will use it in step 3
 
 #### 2. Add `sbt-github-packages` plugin into your existing sbt project
 
-Add this line to your `./project/plugins.sbt`
+I assume you have a library that is ready to publish. Please add this line to your codebase `./project/plugins.sbt`
 ```bash
 addSbtPlugin("com.codecommit" % "sbt-github-packages" % "0.5.2")
 ```

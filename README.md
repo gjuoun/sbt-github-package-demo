@@ -1,6 +1,6 @@
 # Publish sbt package to Github Packages
 
-As you may know, Github Packages is a place like `npm`, which you can host public and private packages. Currently, Github packages supports many package registries like `npm`, `gem`, `mvn`, `gradle`, `dotnet` (**Free for public libraries**). However, there is not support for `sbt`, which is not very friendly to our `scala` developers. Fortunately, thanks to `djspiewak` for creating [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin. This will allow us to publish our scala library into Github packages. Here is how: 
+As you may know, Github Packages is a place like `npm`, which you can host public and private packages. Currently, Github packages supports lots of build tools like `npm`, `gem`, `mvn`, `gradle`, `dotnet` (**Free for public libraries**). However, there is not support for `sbt`, which is not very friendly to our `scala` developers. Fortunately, thanks to `djspiewak` for creating [sbt-github-packages](https://github.com/djspiewak/sbt-github-packages) plugin. This will allow us to publish our scala library into Github packages. Here is how: 
 
 ### 🧧 Publish `sbt` library to Github Packages
 

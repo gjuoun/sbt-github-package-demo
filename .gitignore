@@ -1,1 +1,5 @@
 target/
+project/.bloop*
+.metals/*
+project/project*
+project/metals.sbt

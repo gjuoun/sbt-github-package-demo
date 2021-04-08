@@ -3,12 +3,13 @@ import Dependencies._
 name := "hellopackage"
 scalaVersion := "2.13.3"
 version := "0.1.5"
-organization := "gjuoun"
+organization := "safe2008"
 
 // configs for sbt-github-packages plugin
-githubOwner := "gjuoun"
+githubOwner := "safe2008"
 githubRepository := "github-packages-playground"
-githubTokenSource := TokenSource.GitConfig("github.token")
+githubTokenSource :=TokenSource.Environment("GITHUB_TOKEN")
+// githubTokenSource := TokenSource.GitConfig("github.token")
 
 lazy val root = (project in file("."))
   .settings(

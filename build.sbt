@@ -5,6 +5,8 @@ scalaVersion := "2.13.5"
 version := "0.1.5"
 organization := "safe2008"
 
+githubTokenSource := TokenSource.GitConfig("github.token") || TokenSource.Environment("GITHUB_TOKEN")
+
 // configs for sbt-github-packages plugin
 githubOwner := "safe2008"
 githubRepository := "sbt-github-package-demo"

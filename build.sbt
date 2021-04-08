@@ -1,13 +1,13 @@
 import Dependencies._
 
-name := "hellopackage"
+name := "calculator"
 scalaVersion := "2.13.3"
 version := "0.1.5"
 organization := "safe2008"
 
 // configs for sbt-github-packages plugin
 githubOwner := "safe2008"
-githubRepository := "github-packages-playground"
+githubRepository := "sbt-github-package-demo"
 githubTokenSource :=TokenSource.Environment("GITHUB_TOKEN")
 // githubTokenSource := TokenSource.GitConfig("github.token")
 

@@ -1,15 +1,16 @@
 import Dependencies._
 
 name := "calculator"
-scalaVersion := "2.13.3"
+scalaVersion := "2.13.5"
 version := "0.1.5"
 organization := "safe2008"
 
 // configs for sbt-github-packages plugin
 githubOwner := "safe2008"
 githubRepository := "sbt-github-package-demo"
-githubTokenSource :=TokenSource.Environment("GITHUB_TOKEN")
-// githubTokenSource := TokenSource.GitConfig("github.token")
+publishMavenStyle := true
+publishConfiguration := publishConfiguration.value.withOverwrite(true)
+publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
 
 lazy val root = (project in file("."))
   .settings(
